@@ -2,6 +2,9 @@ const squares = document.querySelectorAll('.square');
 let colors = [randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor()];
 const randomIndex = Math.floor(Math.random() * 6);
 let pickedColor = colors[randomIndex];
+const h1span = document.querySelector('.color-display');
+
+h1span.textContent = pickedColor;
 
 function randomColor() {
     const green = Math.floor(Math.random() * 256);
