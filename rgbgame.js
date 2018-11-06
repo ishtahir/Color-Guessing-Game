@@ -2,9 +2,9 @@ const squares = document.querySelectorAll('.square');
 let colors = [randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor()];
 const randomIndex = Math.floor(Math.random() * 6);
 let pickedColor = colors[randomIndex];
-const h1span = document.querySelector('.color-display');
+const colorDisplay = document.querySelector('.color-display');
 
-h1span.textContent = pickedColor;
+colorDisplay.textContent = pickedColor;
 
 function randomColor() {
     const green = Math.floor(Math.random() * 256);
@@ -15,4 +15,9 @@ function randomColor() {
 
 for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
+    squares[i].addEventListener('click', function() {
+        if (this.style.backgroundColor !== pickedColor) {
+            this.style.backgroundColor = '#232323';
+        }
+    });
 }
