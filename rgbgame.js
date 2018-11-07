@@ -5,7 +5,7 @@ const easyBtn = document.querySelector('.easy-btn');
 const mediumBtn = document.querySelector('.medium-btn');
 const h1 = document.querySelector('h1');
 const messageStatus = document.querySelector('.message-status');
-let squares = createSquares(6);
+let squares = createSquares(3);
 let randomIndex = Math.floor(Math.random() * 6);
 let colors = randomColor(6);
 let pickedColor = colors[randomIndex];
@@ -61,4 +61,14 @@ playAgainBtn.addEventListener('click', function() {
     for (let i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = colors[i];
     }
+});
+
+easyBtn.addEventListener('click', function() {
+    easyBtn.classList.add('selected');
+    mediumBtn.classList.remove('selected');
+});
+
+mediumBtn.addEventListener('click', function() {
+    easyBtn.classList.remove('selected');
+    mediumBtn.classList.add('selected');
 });
