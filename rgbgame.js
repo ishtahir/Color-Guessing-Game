@@ -1,17 +1,23 @@
 const squares = document.querySelectorAll('.square');
 const colorDisplay = document.querySelector('.color-display');
-const randomIndex = Math.floor(Math.random() * 6);
-let colors = [randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor()];
+const playAgainBtn = document.querySelector('.play-again-btn');
+let randomIndex = Math.floor(Math.random() * 6);
+let colors = randomColor(6);
 let pickedColor = colors[randomIndex];
 let messageStatus = document.querySelector('.message-status');
 
 colorDisplay.textContent = pickedColor;
 
-function randomColor() {
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
-    const red = Math.floor(Math.random() * 256);
-    return `rgb(${red}, ${green}, ${blue})`;
+function randomColor(num) {
+    const colorsArr = [];
+    for (let i = 0; i < num; i++) {
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+        const red = Math.floor(Math.random() * 256);
+
+        colorsArr.push(`rgb(${red}, ${green}, ${blue})`);
+    }
+    return colorsArr;
 }
 
 for (let i = 0; i < squares.length; i++) {
@@ -22,9 +28,20 @@ for (let i = 0; i < squares.length; i++) {
             messageStatus.textContent = 'Try Again!';
         } else {
             messageStatus.textContent = 'Correct!';
+            playAgainBtn.textContent = 'Play Again?';
             for (let i = 0; i < squares.length; i++) {
                 squares[i].style.backgroundColor = pickedColor;
             }
         }
     });
 }
+
+playAgainBtn.addEventListener('click', function() {
+    colors = randomColor(6);
+    randomIndex = Math.floor(Math.random() * 6);
+    pickedColor = colors[randomIndex];
+    playAgainBtn.textContent = 'New Colors';
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];
+    }
+});
