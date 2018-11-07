@@ -1,13 +1,13 @@
 const squares = document.querySelectorAll('.square');
 const colorDisplay = document.querySelector('.color-display');
 const playAgainBtn = document.querySelector('.play-again-btn');
+const easyBtn = document.querySelector('.easy-btn');
+const mediumBtn = document.querySelector('.medium-btn');
 const h1 = document.querySelector('h1');
+const messageStatus = document.querySelector('.message-status');
 let randomIndex = Math.floor(Math.random() * 6);
 let colors = randomColor(6);
 let pickedColor = colors[randomIndex];
-let messageStatus = document.querySelector('.message-status');
-
-colorDisplay.textContent = pickedColor;
 
 function randomColor(num) {
     const colorsArr = [];
@@ -20,6 +20,8 @@ function randomColor(num) {
     }
     return colorsArr;
 }
+
+colorDisplay.textContent = pickedColor;
 
 for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
@@ -43,6 +45,7 @@ playAgainBtn.addEventListener('click', function() {
     randomIndex = Math.floor(Math.random() * 6);
     pickedColor = colors[randomIndex];
     playAgainBtn.textContent = 'New Colors';
+    h1.style.backgroundColor = '#232323';
     for (let i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = colors[i];
     }
