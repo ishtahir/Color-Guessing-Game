@@ -22,6 +22,10 @@ h1 {
     padding: 5px;
 }
 
+.selected {
+    background-color: steelblue;
+}
+
 .container {
     margin: 0 auto;
     max-width: 600px;
