@@ -1,9 +1,19 @@
 body {
     background-color: #232323;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
     color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 10px;
+}
+
+.color-display {
+    display: block;
 }
 
 .stripe {
