@@ -1,6 +1,7 @@
 const squares = document.querySelectorAll('.square');
 const colorDisplay = document.querySelector('.color-display');
 const playAgainBtn = document.querySelector('.play-again-btn');
+const h1 = document.querySelector('h1');
 let randomIndex = Math.floor(Math.random() * 6);
 let colors = randomColor(6);
 let pickedColor = colors[randomIndex];
@@ -32,6 +33,7 @@ for (let i = 0; i < squares.length; i++) {
             for (let i = 0; i < squares.length; i++) {
                 squares[i].style.backgroundColor = pickedColor;
             }
+            h1.style.backgroundColor = pickedColor;
         }
     });
 }
