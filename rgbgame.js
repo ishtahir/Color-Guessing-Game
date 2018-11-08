@@ -61,8 +61,10 @@ playAgainBtn.addEventListener('click', function() {
     colors = randomColor(numSquares);
     randomIndex = Math.floor(Math.random() * numSquares);
     pickedColor = colors[randomIndex];
+    colorDisplay.textContent = pickedColor;
     playAgainBtn.textContent = 'New Colors';
-    h1.style.backgroundColor = '#232323';
+    h1.style.backgroundColor = 'steelblue';
+    messageStatus.textContent = '';
     for (let i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = colors[i];
     }
@@ -77,6 +79,8 @@ easyBtn.addEventListener('click', function() {
     randomIndex = Math.floor(Math.random() * numSquares);
     colors = randomColor(numSquares);
     pickedColor = colors[randomIndex];
+    colorDisplay.textContent = pickedColor;
+    messageStatus.textContent = '';
     resetGame();
 });
 
@@ -89,5 +93,7 @@ mediumBtn.addEventListener('click', function() {
     randomIndex = Math.floor(Math.random() * numSquares);
     colors = randomColor(numSquares);
     pickedColor = colors[randomIndex];
+    colorDisplay.textContent = pickedColor;
+    messageStatus.textContent = '';
     resetGame();
 });
