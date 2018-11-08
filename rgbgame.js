@@ -5,6 +5,7 @@ const easyBtn = document.querySelector('.easy-btn');
 const mediumBtn = document.querySelector('.medium-btn');
 const h1 = document.querySelector('h1');
 const messageStatus = document.querySelector('.message-status');
+const modeBtns = document.querySelectorAll('.mode');
 let numSquares = 3;
 let squares = createSquares(numSquares);
 let randomIndex = Math.floor(Math.random() * numSquares);
@@ -53,6 +54,27 @@ function resetGame() {
     }
 }
 
+for (let i = 0; i < modeBtns.length; i++) {
+    modeBtns[i].addEventListener('click', function() {
+        modeBtns[0].classList.remove('selected');
+        modeBtns[1].classList.remove('selected');
+        this.classList.add('selected');
+        container.innerHTML = '';
+        if (this.textContent === 'Easy') {
+            numSquares = 3;
+        } else if (this.textContent === 'Medium') {
+            numSquares = 6;
+        }
+        squares = createSquares(numSquares);
+        colors = randomColor(numSquares);
+        randomIndex = Math.floor(Math.random() * numSquares);
+        pickedColor = colors[randomIndex];
+        colorDisplay.textContent = pickedColor;
+        messageStatus.textContent = '';
+        resetGame();
+    });
+}
+
 colorDisplay.textContent = pickedColor;
 
 resetGame();
@@ -68,32 +90,4 @@ playAgainBtn.addEventListener('click', function() {
     for (let i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = colors[i];
     }
-});
-
-easyBtn.addEventListener('click', function() {
-    easyBtn.classList.add('selected');
-    mediumBtn.classList.remove('selected');
-    container.innerHTML = '';
-    numSquares = 3;
-    squares = createSquares(numSquares);
-    randomIndex = Math.floor(Math.random() * numSquares);
-    colors = randomColor(numSquares);
-    pickedColor = colors[randomIndex];
-    colorDisplay.textContent = pickedColor;
-    messageStatus.textContent = '';
-    resetGame();
-});
-
-mediumBtn.addEventListener('click', function() {
-    easyBtn.classList.remove('selected');
-    mediumBtn.classList.add('selected');
-    container.innerHTML = '';
-    numSquares = 6;
-    squares = createSquares(numSquares);
-    randomIndex = Math.floor(Math.random() * numSquares);
-    colors = randomColor(numSquares);
-    pickedColor = colors[randomIndex];
-    colorDisplay.textContent = pickedColor;
-    messageStatus.textContent = '';
-    resetGame();
 });
