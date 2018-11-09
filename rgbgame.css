@@ -51,6 +51,10 @@ button:hover {
     background-color: steelblue;
 }
 
+.mode:not(last-child) {
+    margin-right: 15px;
+}
+
 .message-status {
     display: inline-block;
     width: 20%;
