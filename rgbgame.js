@@ -26,6 +26,13 @@ function randomColor(num) {
     return colorsArr;
 }
 
+function beautify(str) {
+    str = str.slice(4, str.length - 1);
+    str = str.split(',');
+    str = `rgb(<span id="red">${str[0]}</span>, <span id="green">${str[1]}</span>, <span id="blue">${str[2]}</span>)`;
+    return str;
+}
+
 function createSquares(num) {
     const squaresArr = [];
     for (let i = 0; i < num; i++) {
@@ -41,9 +48,9 @@ function resetGame() {
     colors = randomColor(numSquares);
     randomIndex = Math.floor(Math.random() * numSquares);
     pickedColor = colors[randomIndex];
-    colorDisplay.textContent = pickedColor;
+    colorDisplay.innerHTML = beautify(pickedColor);
     messageStatus.textContent = '';
-    h1.style.backgroundColor = 'steelblue';
+    h1.style.backgroundColor = '#777';
     for (let i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = colors[i];
         squares[i].addEventListener('click', function() {
@@ -81,12 +88,12 @@ function init() {
             colors = randomColor(numSquares);
             randomIndex = Math.floor(Math.random() * numSquares);
             pickedColor = colors[randomIndex];
-            colorDisplay.textContent = pickedColor;
+            colorDisplay.innerHTML = beautify(pickedColor);
             messageStatus.textContent = '';
             resetGame();
         });
     }
-    colorDisplay.textContent = pickedColor;
+    colorDisplay.innerHTML = beautify(pickedColor);
     resetGame();
 }
 
