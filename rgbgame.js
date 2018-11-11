@@ -6,6 +6,7 @@ const mediumBtn = document.querySelector('.medium-btn');
 const h1 = document.querySelector('h1');
 const messageStatus = document.querySelector('.message-status');
 const modeBtns = document.querySelectorAll('.mode');
+const points = document.querySelector('.points');
 let numSquares = 3;
 let squares = createSquares(numSquares);
 let colors = randomColor(numSquares);
