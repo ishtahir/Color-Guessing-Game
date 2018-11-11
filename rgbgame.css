@@ -87,3 +87,13 @@ button:hover {
 #blue {
     color: #0000ff;
 }
+
+.score {
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    font-size: 300%;
+    margin: 0 0 10px 0;
+}
