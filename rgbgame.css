@@ -52,13 +52,17 @@ button:hover {
     background-color: #777;
 }
 
-.mode:not(last-child) {
+.mode:not(last-child), .rgb-btn {
     margin-right: 15px;
 }
 
 .message-status {
     display: inline-block;
     width: 20%;
+}
+
+.play-again-btn {
+    margin-left: 20%;
 }
 
 .container {
