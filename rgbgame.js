@@ -3,19 +3,21 @@ const container = document.querySelector('.container');
 const playAgainBtn = document.querySelector('.play-again-btn');
 const easyBtn = document.querySelector('.easy-btn');
 const mediumBtn = document.querySelector('.medium-btn');
+const rgbBtn = document.querySelector('.rgb-btn');
+const hexBtn = document.querySelector('.hex-btn');
 const h1 = document.querySelector('h1');
 const messageStatus = document.querySelector('.message-status');
-const modeBtns = document.querySelectorAll('.mode');
+const diffBtns = document.querySelectorAll('.diff');
 const points = document.querySelector('.points');
 let numSquares = 3;
 let squares = createSquares(numSquares);
-let colors = randomColor(numSquares);
+let colors = randomRgbColor(numSquares);
 let randomIndex = Math.floor(Math.random() * numSquares);
 let pickedColor = colors[randomIndex];
 
 init();
 
-function randomColor(num) {
+function randomRgbColor(num) {
     const colorsArr = [];
     for (let i = 0; i < num; i++) {
         const green = Math.floor(Math.random() * 256);
@@ -60,7 +62,7 @@ function createSquares(num) {
 }
 
 function resetGame() {
-    colors = randomColor(numSquares);
+    colors = randomRgbColor(numSquares);
     randomIndex = Math.floor(Math.random() * numSquares);
     pickedColor = colors[randomIndex];
     colorDisplay.innerHTML = beautify(pickedColor);
@@ -85,11 +87,11 @@ function resetGame() {
 }
 
 function init() {
-    for (let i = 0; i < modeBtns.length; i++) {
-        modeBtns[i].addEventListener('click', function() {
-            modeBtns[0].classList.remove('selected');
-            modeBtns[1].classList.remove('selected');
-            modeBtns[2].classList.remove('selected');
+    for (let i = 0; i < diffBtns.length; i++) {
+        diffBtns[i].addEventListener('click', function() {
+            diffBtns[0].classList.remove('selected');
+            diffBtns[1].classList.remove('selected');
+            diffBtns[2].classList.remove('selected');
             this.classList.add('selected');
             container.innerHTML = '';
             if (this.textContent === 'Easy') {
@@ -100,7 +102,7 @@ function init() {
                 numSquares = 9;
             }
             squares = createSquares(numSquares);
-            colors = randomColor(numSquares);
+            colors = randomRgbColor(numSquares);
             randomIndex = Math.floor(Math.random() * numSquares);
             pickedColor = colors[randomIndex];
             colorDisplay.innerHTML = beautify(pickedColor);

@@ -52,7 +52,7 @@ button:hover {
     background-color: #777;
 }
 
-.mode:not(last-child), .rgb-btn {
+.diff:not(last-child) {
     margin-right: 15px;
 }
 
