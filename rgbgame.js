@@ -1,21 +1,14 @@
 const colorDisplay = document.querySelector('.color-display');
 const container = document.querySelector('.container');
 const playAgainBtn = document.querySelector('.play-again-btn');
-const easyBtn = document.querySelector('.easy-btn');
-const mediumBtn = document.querySelector('.medium-btn');
-const rgbBtn = document.querySelector('.rgb-btn');
-const hexBtn = document.querySelector('.hex-btn');
 const h1 = document.querySelector('h1');
 const messageStatus = document.querySelector('.message-status');
 const diffBtns = document.querySelectorAll('.diff');
-const points = document.querySelector('.points');
 let numSquares = 3;
 let squares = createSquares(numSquares);
 let colors = randomRgbColor(numSquares);
 let randomIndex = Math.floor(Math.random() * numSquares);
 let pickedColor = colors[randomIndex];
-
-init();
 
 function randomRgbColor(num) {
     const colorsArr = [];
@@ -31,7 +24,7 @@ function randomRgbColor(num) {
 
 function randomHexColor(num) {
     const colorsArr = [];
-    const hexArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+    const hexArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
     for (let i = 0; i < num; i++) {
         let color = '#';
         for (let i = 0; i < 6; i++) {
@@ -113,6 +106,8 @@ function init() {
     colorDisplay.innerHTML = beautify(pickedColor);
     resetGame();
 }
+
+init();
 
 playAgainBtn.addEventListener('click', function() {
     playAgainBtn.textContent = 'New Colors';
