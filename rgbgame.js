@@ -1,3 +1,4 @@
+// declaring and defining all variables
 const colorDisplay = document.querySelector('.color-display');
 const container = document.querySelector('.container');
 const playAgainBtn = document.querySelector('.play-again-btn');
@@ -10,6 +11,7 @@ let colors = randomRgbColor(numSquares);
 let randomIndex = Math.floor(Math.random() * numSquares);
 let pickedColor = colors[randomIndex];
 
+// function to create an array of num amount of rgb colors
 function randomRgbColor(num) {
     const colorsArr = [];
     for (let i = 0; i < num; i++) {
@@ -22,6 +24,7 @@ function randomRgbColor(num) {
     return colorsArr;
 }
 
+// function to create an array of num amount of hex colors
 // function randomHexColor(num) {
 //     const colorsArr = [];
 //     const hexArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
@@ -36,6 +39,7 @@ function randomRgbColor(num) {
 //     return colorsArr;
 // }
 
+// function to style the picked color for the header
 function beautify(str) {
     str = str.slice(4, str.length - 1);
     str = str.split(',');
@@ -43,6 +47,7 @@ function beautify(str) {
     return str;
 }
 
+// function to create num number of squares based on the game difficulty
 function createSquares(num) {
     const squaresArr = [];
     for (let i = 0; i < num; i++) {
@@ -54,6 +59,7 @@ function createSquares(num) {
     return squaresArr;
 }
 
+// function to restart the game
 function resetGame() {
     colors = randomRgbColor(numSquares);
     randomIndex = Math.floor(Math.random() * numSquares);
@@ -79,6 +85,7 @@ function resetGame() {
     }
 }
 
+// function to run on game load
 function init() {
     for (let i = 0; i < diffBtns.length; i++) {
         diffBtns[i].addEventListener('click', function() {
@@ -113,3 +120,11 @@ playAgainBtn.addEventListener('click', function() {
     playAgainBtn.textContent = 'New Colors';
     resetGame();
 });
+
+// ideas for Game
+// - add score
+// - add time
+// - add hex mode
+// - add elimination mode
+// - add timed mode
+// - add in a row mode
