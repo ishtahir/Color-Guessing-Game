@@ -102,11 +102,6 @@ function init() {
                 numSquares = 9;
             }
             squares = createSquares(numSquares);
-            colors = randomRgbColor(numSquares);
-            randomIndex = Math.floor(Math.random() * numSquares);
-            pickedColor = colors[randomIndex];
-            colorDisplay.innerHTML = beautify(pickedColor);
-            messageStatus.textContent = '';
             resetGame();
         });
     }
