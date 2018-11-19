@@ -25,19 +25,19 @@ function randomRgbColor(num) {
 }
 
 // function to create an array of num amount of hex colors
-// function randomHexColor(num) {
-//     const colorsArr = [];
-//     const hexArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
-//     for (let i = 0; i < num; i++) {
-//         let color = '#';
-//         for (let i = 0; i < 6; i++) {
-//             const index = Math.floor(Math.random() * 16);
-//             color += hexArr[index];
-//         }
-//         colorsArr.push(color);
-//     }
-//     return colorsArr;
-// }
+function randomHexColor(num) {
+    const colorsArr = [];
+    const hexArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+    for (let i = 0; i < num; i++) {
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            const index = Math.floor(Math.random() * 16);
+            color += hexArr[index];
+        }
+        colorsArr.push(color);
+    }
+    return colorsArr;
+}
 
 // function to style the picked color for the header
 function beautify(str) {
